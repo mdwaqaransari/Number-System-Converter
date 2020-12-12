@@ -94,10 +94,10 @@ function App() {
                 value={fromBase}
                 onChange={(e) => setFromBase(parseInt(e.target.value))}
               >
-                <option value="2">2</option>
-                <option value="8">8</option>
-                <option value="10">10</option>
-                <option value="16">16</option>
+                <option value="2">2(Binary)</option>
+                <option value="8">8(Octal)</option>
+                <option value="10">10(Decimal)</option>
+                <option value="16">16(Hexadecimal)</option>
               </select>
             </div>
             <div className="form-group">
@@ -109,10 +109,10 @@ function App() {
                 value={toBase}
                 onChange={(e) => setToBase(parseInt(e.target.value))}
               >
-                <option value="2">2</option>
-                <option value="8">8</option>
-                <option value="10">10</option>
-                <option value="16">16</option>
+                <option value="2">2(Binary)</option>
+                <option value="8">8(Octal)</option>
+                <option value="10">10(Decimal)</option>
+                <option value="16">16(Hexadecimal)</option>
               </select>
             </div>
             <div className="form-group">
