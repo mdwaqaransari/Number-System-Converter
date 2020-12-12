@@ -24,7 +24,7 @@ function App() {
   function multiplyTechnique(num, frombase) {
     let ans = 0;
     let exponent = 0;
-    let sol = [];
+    // let sol = [];
     for (let i = num.length - 1; i >= 0; i--) {
       ans += getNum(num[i]) * Math.pow(frombase, exponent);
       exponent++;
