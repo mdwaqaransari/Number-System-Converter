@@ -7,4 +7,15 @@
   width: 50%;
   background: wheat;
   padding: 20px 20px;
+  margin-left: 25%;
+  margin-top: 4%;
+}
+
+@media screen and (max-width: 576px){
+  .box{
+    width: 94%;
+    background: wheat;
+    padding: 10px 10px;
+    margin: 3%;
+  }
 }
