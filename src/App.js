@@ -6,18 +6,22 @@ function App() {
   const [fromBase, setFromBase] = useState(2);
   const [toBase, setToBase] = useState(10);
   const [answer, setAnswer] = useState("");
+  const [alert, setAlert] = useState("form-control");
   // const [solution, setSolution] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("here" + typeof toBase + typeof fromBase);
     if (toBase === 10) {
       setAnswer(multiplyTechnique(number, fromBase));
     } else if (fromBase === 10) {
       setAnswer(divisionTechnique(number, toBase));
     } else {
       let tempAns = multiplyTechnique(number, fromBase);
-      setAnswer(divisionTechnique(tempAns, toBase));
+      if(tempAns === "Invalid Number"){
+        setAnswer("Invalid Number");
+      }else{
+        setAnswer(divisionTechnique(tempAns, toBase));
+      }
     }
   };
 
@@ -26,9 +30,14 @@ function App() {
     let exponent = 0;
     // let sol = [];
     for (let i = num.length - 1; i >= 0; i--) {
+      if(getNum(num[i])>=fromBase || num[i]<0){
+        setAlert("form-control alert alert-danger");
+        return "Invalid Number";
+      }
       ans += getNum(num[i]) * Math.pow(frombase, exponent);
       exponent++;
     }
+    setAlert("form-control ");
     return ans;
   }
 
@@ -37,12 +46,14 @@ function App() {
     let remainder = 0;
     while (num > 0) {
       remainder = num % tobase;
-      // console.log(remainder);
+      if(remainder>=tobase || remainder<0){
+        setAlert("form-control alert alert-danger");
+        return "Invalid Number";
+      }
       ans.push(checkNum(remainder));
-      // console.log(ans);
       num = Math.floor(num / tobase);
     }
-    console.log(ans);
+    setAlert("form-control ");
     return ans.reverse().join("");
   }
 
@@ -54,6 +65,7 @@ function App() {
     else if (num === 13) return "D";
     else if (num === 14) return "E";
     else if (num === 15) return "F";
+    else return 0;
   }
 
   function getNum(num) {
@@ -64,6 +76,7 @@ function App() {
     else if (num === "D") return 13;
     else if (num === "E") return 14;
     else if (num === "F") return 15;
+    else return 0;
   }
 
   return (
@@ -78,7 +91,7 @@ function App() {
             <div className="form-group">
               <input
                 type="text"
-                className="number form-control"
+                className={alert}
                 name="number"
                 placeholder="Enter Number"
                 value={number}
