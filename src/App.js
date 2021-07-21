@@ -87,7 +87,7 @@ function App() {
       <div className="container">
         <div className="box text-center">
           <h2>Base Converter</h2>
-          <h3>Made By - Navjyot Kumar</h3>
+          <h3>Made By - Mohd Waqar Ansari</h3>
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <input
